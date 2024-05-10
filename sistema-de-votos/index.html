@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Sistema de Votação</title>
+</head>
+<body>
+    <main class="container">
+        <div class="content-sysem">
+            <h1>Posso votar?</h1>
+            <label for="idade">Qual a sua Idade?</label>
+            <input class="input_idade" type="number" name="idade" id="idade">
+            <input class="btn_verificar" type="button" value="Verificar" onclick="calcular()">
+            <div id="res"></div>
+        </div>
+        <footer>
+            <p>&copy; Feito com amor por <a href="https://www.instagram.com/_maycony/">Maycony</a>❤️</p>
+        </footer>
+    </main>
+    
+
+    <script>
+        function calcular() {
+            let txtIdade = document.getElementById('idade')
+            let res = document.getElementById('res')
+            let textIdade = Number(txtIdade.value)
+
+            res.innerHTML = `Você tem ${textIdade} Anos. `
+
+            if (textIdade < 16) {
+                alert('AVISO!!!!')
+                res.innerHTML += 'Você não vota.'
+                res.style.color = 'red'
+            } else if (textIdade < 18 || textIdade > 67) {
+                alert('PARABÉNS!!!!')
+                res.innerHTML += 'Seu voto é Opcional!'
+                res.style.color = 'green'
+            } else {
+                alert('PARABÉNS!!!!')
+                res.innerHTML += 'Você Vota!!!'
+                res.style.color = 'green'
+            }
+         } 
+    </script>
+</body>
+</html>
